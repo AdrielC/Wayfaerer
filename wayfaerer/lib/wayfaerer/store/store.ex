@@ -9,6 +9,7 @@ defmodule Wayfaerer.Store do
   @store Application.compile_env(:wayfaerer, :store, Wayfaerer.Store.EtsStore)
 
   def start_link(opts \\ []), do: @store.start_link(opts)
+  def child_spec(opts), do: @store.child_spec(opts)
 
   def put_job(job), do: @store.put_job(job)
   def update_job(job), do: @store.update_job(job)
